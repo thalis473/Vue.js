@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1 class="titulo-header">
+          Criando uma lista com o Vue.js
+        </h1>
+    </header>
+<main>
+      <h3 >
+       Listas simples
+      </h3>
+
+    <div id="app">
+        <ul>
+            <li v-for="usuario in colecaoUsuarios">
+                {{usuario}}
+            </li>
+        </ul>
+    </div>
+
+        <h3 >
+        Listas com indice
+       </h3>
+
+    <div id="listaindice">
+        <ul>
+            <li v-for="(usuario, indice) in colecaoUsuarios">
+                {{indice}} : {{usuario}}
+            </li>
+        </ul>
+    </div>
+
+        <h3 >
+        Listas de produtos
+       </h3>
+
+    <div id="listaProdutos">
+        <ul>
+            <li v-for="produto in colecaoProdutos">
+                <h3>{{produto.nome}}</h3>
+                <p>R${{produto.valor}}</p>
+            </li>
+        </ul>
+    </div>
+
+    <h3 >
+        Tecnologias JavaScript (lista a base de um Objeto)
+    </h3>
+
+    <div id="listaJs">
+        <ul v-for = "tecnologia in colecaoTecnologias">
+          <li>
+            {{tecnologia.nome}}
+          </li>
+          <ul v-for="(valor, propiedade) in tecnologia.dados">
+              <li>
+                {{propiedade}} : {{valor}}
+              </li>
+          </ul>
+        </ul>
+    </div>
+
+    <h3 >
+        Lista dos Aprovados (com Condições v-if)
+    </h3>
+
+    <div id="listenIf">
+        <table>
+            <tr>
+              <th>Nome</th>
+              <th>Pontuação</th>
+            </tr>
+    
+            <template v-for="candidato in colecaoCandidatos">
+              <tr v-if="candidato.aprovado">
+                <td>{{ candidato.nome }}</td>
+                <td>{{ candidato.pontos }}</td>
+              </tr>
+            </template>
+          </table>
+       
+    </div>
+
+    
+</main>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
