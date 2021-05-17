@@ -70,70 +70,29 @@ methods:{
   //remoção da foto
 
   remove($event,foto){
-// console.log($event) // Esse $event foi só por motivo de  estudo
 
-//        ULTILIZANDO DA CLASS (refatoração 3)
+
+//        ULTILIZANDO DA CLASS 
 
       this.service.apaga(foto._id)
         .then(()=>{
-            let indice = this.fotos.indexOf(foto);// peguei o indice da foto em questão
-            this.fotos.splice(indice, 1); //Aqui eu removo do meu array a foto em questão tirando ela da vizualização do usuario
+            let indice = this.fotos.indexOf(foto);
+            this.fotos.splice(indice, 1);
             this.mensagem = 'Foto removida com sucesso'
            },err=>this.mensagem = err.message
            )
 
 
 
-//         ULTILIZANDO DO RESOURCE (refatoração2)
-    /*  this.resource.delete({id:foto._id})
-      .then(()=>{
-            let indice = this.fotos.indexOf(foto);// peguei o indice da foto em questão
-            this.fotos.splice(indice, 1); //Aqui eu removo do meu array a foto em questão tirando ela da vizualização do usuario
-            this.mensagem = 'Foto removida com sucesso'
-           },err=>{
-           console.log(err)
-           this.mensagem = 'Não foi possivel remover a foto'
-         })  */
-
-//      ULTILIZANDO O METODO $HTTP (baixo nivel) digitando mais codigo  (refatoração 1)   //
-/*
-      this.$http
-         .delete(`v1/fotos/${foto._id}`)
-         .then(()=>{
-            let indice = this.fotos.indexOf(foto);// peguei o indice da foto em questão
-            this.fotos.splice(indice, 1); //Aqui eu removo do meu array a foto em questão tirando ela da vizualização do usuario
-            this.mensagem = 'Foto removida com sucesso'
-           },err=>{
-           console.log(err)
-           this.mensagem = 'Não foi possivel remover a foto'
-         })
-  */
-    
   }
 },
   created() {
-//        ULTILIZANDO DA CLASS (refatoração 3)
+//        ULTILIZANDO DA CLASS 
       this.service = new FotoService(this.$resource);
 
       this.service.lista()
         .then(fotos => this.fotos =fotos, err=> this.mensagem = err.message); // Essa msg vem do Fotoservice
 
-
-
-//         ULTILIZANDO DO RESOURCE (refatoração2)
- /*   this.resource = this.$resource('v1/fotos{/id}');
-
-    this.resource
-     .query()
-     .then(res => res.json())
-     .then(fotos => this.fotos = fotos, err => console.log(err));  */
-
-
-//      ULTILIZANDO O METODO $HTTP (baixo nivel) digitando mais codigo  (refatoração 1)
-
-   /* this.$http.get('v1/fotos') 
-      .then(res => res.json())
-      .then(fotos => this.fotos = fotos, err => console.log(err)); */
   }
 }
 

@@ -24,7 +24,7 @@ export default {
 
     return {
 
-      routes: routes.filter(route => route.menu) // se menu for true ele entra pra lista
+      routes: routes.filter(route => route.menu) 
     }
   }
 }

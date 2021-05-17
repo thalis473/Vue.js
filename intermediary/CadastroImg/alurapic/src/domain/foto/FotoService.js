@@ -1,7 +1,7 @@
 
 export default class FotoService{
         constructor(resource){
-            this._resource = resource('v1/fotos{/id}') // _ antes do resource e para deixar privado
+            this._resource = resource('v1/fotos{/id}') 
         }
 
         lista() {
@@ -49,9 +49,3 @@ export default class FotoService{
 }
 
 
-// Não posso usar o ' this.resource 'pois ele nao e um componente //
-/*
-Então ao ultilizar essa class no componente , temos que fazer assim
-
-   let service =new FotoService(this.$resource)
-*/

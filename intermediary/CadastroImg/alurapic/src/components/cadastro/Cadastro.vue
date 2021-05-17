@@ -126,4 +126,3 @@ export default {
   }
 </style>
 
-<!-- v-model.lazy -> ele serve para postergar o valor que voce digia no seu input, e só atualizar a variavel quando voce sair do input 

@@ -1,5 +1,5 @@
 
-const Cadastro=()=> System.import('./components/cadastro/Cadastro.vue') //lazy loading
+const Cadastro=()=> System.import('./components/cadastro/Cadastro.vue') 
 import Home from './components/home/Home.vue';
 
 export const routes = [
@@ -10,4 +10,3 @@ export const routes = [
 ];
 
 
-// name e diferente de titulo
